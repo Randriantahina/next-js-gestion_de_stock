@@ -7,7 +7,7 @@ const Page = async () => {
   // if (session) {
   // redirect('/dashboard/notes');
   // }
-  return redirect(session ? '/dashboard/notes' : '/sign-in');
+  return redirect(session ? '/dashboard/acceuil' : '/sign-in');
   //    redirect('/sign-in');
   // return redirect(session ? '/dashboard/notes' : '/sign-in');
   // return (
