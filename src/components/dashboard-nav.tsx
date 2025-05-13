@@ -10,7 +10,7 @@ export default function DasboardNav() {
   const pathname = usePathname();
 
   const menuDashboard = [
-    { name: 'Notes', icon: NotebookPen, path: '/dashboard/notes' },
+    { name: 'dashboard', icon: NotebookPen, path: '/dashboard/acceuil' },
     { name: 'Settings', icon: Settings, path: '/dashboard/settings' },
     { name: 'Paiement', icon: CreditCard, path: '/dashboard/payment' },
   ];
