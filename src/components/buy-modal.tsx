@@ -2,8 +2,8 @@
 
 import { useState } from 'react';
 import { Stock } from '../lib/type';
-import { buyStock } from '../lib/actions-stock';
-
+import { updateStock } from '../lib/actions-stock';
+import { createSale } from '../lib/actions-sale';
 interface BuyStockModalProps {
   isOpen: boolean;
   onClose: () => void;
@@ -24,10 +24,21 @@ export default function BuyStockModal({
 
   const handleBuy = async () => {
     try {
-      await buyStock(stock.id, quantity);
+      if (!stock) return;
+
+      // Enregistrez la vente dans la table Sale
+      await createSale(stock.id, 1, quantity); // Remplacez "1" par l'ID de l'utilisateur connecté
+
+      // Mettez à jour le stock en réduisant la quantité disponible
+      const newStatus = stock.status - quantity;
+      if (newStatus < 0) {
+        throw new Error('La quantité demandée dépasse le stock disponible.');
+      }
+      await updateStock(stock.id, newStatus);
+
       setError('');
-      onBuy(); // recharge le tableau
-      onClose();
+      onBuy(); // Recharge le tableau des stocks
+      onClose(); // Ferme le modal
     } catch (err: any) {
       setError(err.message || "Erreur lors de l'achat");
     }

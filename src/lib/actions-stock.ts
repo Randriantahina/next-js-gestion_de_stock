@@ -33,28 +33,9 @@ export async function getStocks() {
 }
 
 //buy
-
-export async function buyStock(stockId: string, quantity: number) {
-  if (quantity <= 0) {
-    throw new Error('Quantité invalide');
-  }
-
-  const stock = await prisma.stock.findUnique({
+export async function updateStock(stockId: number, newStatus: number) {
+  return await prisma.stock.update({
     where: { id: stockId },
-  });
-
-  if (!stock) {
-    throw new Error('Stock introuvable');
-  }
-
-  if (stock.status < quantity) {
-    throw new Error('Quantité demandée supérieure au stock disponible');
-  }
-
-  await prisma.stock.update({
-    where: { id: stockId },
-    data: {
-      status: stock.status - quantity,
-    },
+    data: { status: newStatus },
   });
 }

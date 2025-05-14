@@ -137,6 +137,14 @@ exports.Prisma.StockScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
+exports.Prisma.SaleScalarFieldEnum = {
+  id: 'id',
+  stockId: 'stockId',
+  quantity: 'quantity',
+  createdAt: 'createdAt',
+  userId: 'userId'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -151,10 +159,15 @@ exports.Prisma.StockOrderByRelevanceFieldEnum = {
   name: 'name'
 };
 
+exports.Prisma.SaleOrderByRelevanceFieldEnum = {
+  id: 'id'
+};
+
 
 exports.Prisma.ModelName = {
   User: 'User',
-  Stock: 'Stock'
+  Stock: 'Stock',
+  Sale: 'Sale'
 };
 
 /**

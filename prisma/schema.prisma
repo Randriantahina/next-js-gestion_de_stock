@@ -20,6 +20,7 @@ model User {
   password  String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  sale Sale[]
 }
 
 
@@ -30,4 +31,14 @@ model Stock {
   status     Int
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  sale Sale[]
+}
+model Sale {
+  id        String   @id @default(cuid())
+  stock     Stock    @relation(fields: [stockId], references: [id])
+  stockId   Int
+  quantity  Int
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id])
+  userId    Int
 }
