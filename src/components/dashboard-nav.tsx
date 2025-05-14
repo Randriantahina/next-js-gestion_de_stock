@@ -1,6 +1,6 @@
 'use client';
 
-import { NotebookPen, Settings, CreditCard, Notebook } from 'lucide-react';
+import { NotebookPen, Settings, CreditCard, History } from 'lucide-react';
 
 import Link from 'next/link';
 
@@ -13,6 +13,11 @@ export default function DasboardNav() {
     { name: 'dashboard', icon: NotebookPen, path: '/dashboard/acceuil' },
     { name: 'Settings', icon: Settings, path: '/dashboard/settings' },
     { name: 'Paiement', icon: CreditCard, path: '/dashboard/payment' },
+    {
+      name: 'Historique de Vente',
+      icon: History,
+      path: '/dashboard/historique',
+    },
   ];
   return (
     <nav className="flex md:flex-col md:h-full md:w-16 w-full lg:w-60 gap-2 flex-wrap">

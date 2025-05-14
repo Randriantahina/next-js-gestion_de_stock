@@ -139,7 +139,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "/home/shanjeev/Moi/inventory-management/src/generated/prisma",
+      "value": "D:\\Projet\\next-js-gestion_de_stock\\src\\generated\\prisma",
       "fromEnvVar": null
     },
     "config": {
@@ -148,12 +148,12 @@ const config = {
     "binaryTargets": [
       {
         "fromEnvVar": null,
-        "value": "debian-openssl-3.0.x",
+        "value": "windows",
         "native": true
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "/home/shanjeev/Moi/inventory-management/prisma/schema.prisma",
+    "sourceFilePath": "D:\\Projet\\next-js-gestion_de_stock\\prisma\\schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
@@ -171,7 +171,7 @@ const config = {
     "db": {
       "url": {
         "fromEnvVar": "DATABASE_URL",
-        "value": "mysql://root:root@localhost:3306/gestion"
+        "value": "mysql://root:root@localhost:3306/stock"
       }
     }
   },

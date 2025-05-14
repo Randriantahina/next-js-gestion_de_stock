@@ -21,12 +21,17 @@ import {
 } from '../lib/actions-stock';
 import { Stock } from '../lib/type';
 import StockModal from './stock-modal';
+import BuyStockModal from './buy-modal';
 
 const TopPayingClients = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [stocks, setStocks] = useState<Stock[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [stockToEdit, setStockToEdit] = useState<Stock | undefined>(undefined);
+  const [isBuyModalOpen, setIsBuyModalOpen] = useState(false);
+  const [selectedStockToBuy, setSelectedStockToBuy] = useState<Stock | null>(
+    null
+  );
 
   useEffect(() => {
     const fetchStocks = async () => {
@@ -136,6 +141,16 @@ const TopPayingClients = () => {
                     >
                       <Trash className="w-4 h-4" />
                     </button>
+                    <Button
+                      onClick={() => {
+                        setSelectedStockToBuy(stock); // on va créer ce state juste après
+                        setIsBuyModalOpen(true); // on ouvre le modal d'achat
+                      }}
+                      className="px-3 py-1.5 bg-green-600 text-white text-xs font-medium rounded-lg hover:bg-green-700 transition-colors duration-200 disabled:opacity-50"
+                      disabled={isLoading}
+                    >
+                      Acheter
+                    </Button>
                   </div>
                 </TableCell>
               </TableRow>
@@ -152,6 +167,20 @@ const TopPayingClients = () => {
           stockToEdit={stockToEdit}
         />
       </div>
+      <BuyStockModal
+        isOpen={isBuyModalOpen}
+        onClose={() => {
+          setIsBuyModalOpen(false);
+          setSelectedStockToBuy(null);
+        }}
+        stock={selectedStockToBuy}
+        onBuy={async () => {
+          setIsLoading(true);
+          const updatedStocks = await getStocks();
+          setStocks(updatedStocks);
+          setIsLoading(false);
+        }}
+      />
     </DashboardCard>
   );
 };

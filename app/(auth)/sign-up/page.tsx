@@ -37,7 +37,7 @@ const Page = async () => {
               autoComplete="current-password"
             />
             <Button className="w-full" type="submit">
-              Sign In
+              Sign Up
             </Button>
           </form>
 
