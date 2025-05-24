@@ -4,6 +4,7 @@ import { prisma } from './prisma';
 
 export async function addStock(data: {
   name: string;
+  description: string;
   price: number;
   status: number;
 }) {
@@ -14,7 +15,7 @@ export async function addStock(data: {
 
 export async function editStock(
   id: number,
-  data: { name: string; price: number; status: number }
+  data: { name: string; description: string; price: number; status: number }
 ) {
   return await prisma.stock.update({
     where: { id },

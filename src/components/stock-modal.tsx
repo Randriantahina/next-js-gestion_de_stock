@@ -4,6 +4,7 @@ import { bookSchema as stockSchema } from '../lib/schema'; // Renommez si néces
 
 const initialFormData: StockFormData = {
   name: '',
+  description: '',
   price: 0,
   status: 0,
 };
@@ -25,6 +26,7 @@ export default function StockModal({
     if (stockToEdit) {
       setFormData({
         name: stockToEdit.name,
+        description: stockToEdit.description,
         price: stockToEdit.price,
         status: stockToEdit.status,
       });
@@ -83,6 +85,22 @@ export default function StockModal({
             />
             {errors.name && (
               <p className="mt-1 text-sm text-red-600">{errors.name}</p>
+            )}
+          </div>
+          <div>
+            <label className="block text-sm font-semibold text-gray-700 mb-1">
+              description
+            </label>
+            <input
+              type="text"
+              className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
+              value={formData.description}
+              onChange={(e) =>
+                setFormData({ ...formData, description: e.target.value })
+              }
+            />
+            {errors.description && (
+              <p className="mt-1 text-sm text-red-600">{errors.description}</p>
             )}
           </div>
 

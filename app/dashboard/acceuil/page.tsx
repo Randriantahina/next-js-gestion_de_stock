@@ -37,9 +37,9 @@ const PageNote = () => {
             <TopPayingClients />
           </div>
           {/* Blog */}
-          <div className="col-span-1 lg:col-span-3">
+          {/* <div className="col-span-1 lg:col-span-3">
             <Blog />
-          </div>
+          </div> */}
         </div>
       </div>
     </PageContainer>

@@ -1,5 +1,6 @@
 export interface StockFormData {
   name: string;
+  description: string;
   price: number;
   status: number;
 }

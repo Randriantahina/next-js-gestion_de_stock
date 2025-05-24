@@ -1,6 +1,6 @@
 'use client';
 
-import { NotebookPen, Settings, CreditCard, History } from 'lucide-react';
+import { NotebookPen, History, PackagePlus, Boxes } from 'lucide-react';
 
 import Link from 'next/link';
 
@@ -11,8 +11,8 @@ export default function DasboardNav() {
 
   const menuDashboard = [
     { name: 'dashboard', icon: NotebookPen, path: '/dashboard/acceuil' },
-    { name: 'Settings', icon: Settings, path: '/dashboard/settings' },
-    { name: 'Paiement', icon: CreditCard, path: '/dashboard/payment' },
+    { name: 'new stock', icon: PackagePlus, path: '/dashboard/new_stock' },
+    { name: 'stocks', icon: Boxes, path: '/dashboard/stock' },
     {
       name: 'Historique de Vente',
       icon: History,
@@ -20,7 +20,7 @@ export default function DasboardNav() {
     },
   ];
   return (
-    <nav className="flex md:flex-col md:h-full md:w-16 w-full lg:w-60 gap-2 flex-wrap">
+    <nav className="flex md:flex-col md:h-full md:w-16 w-full lg:w-60 gap-2 flex-wrap border rounded-xl p-4">
       {menuDashboard.map((link, index) => {
         const isActive = pathname.startsWith(link.path);
         return (

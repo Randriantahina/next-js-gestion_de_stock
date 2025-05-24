@@ -89,6 +89,9 @@ const TopPayingClients = () => {
               <TableHead className="font-semibold text-sm">Id</TableHead>
               <TableHead className="font-semibold text-sm">Nom</TableHead>
               <TableHead className="font-semibold text-sm">
+                Description
+              </TableHead>
+              <TableHead className="font-semibold text-sm">
                 Prix unitaire
               </TableHead>
               <TableHead className="font-semibold text-sm">Statut</TableHead>
@@ -105,6 +108,9 @@ const TopPayingClients = () => {
                 </TableCell>
                 <TableCell>
                   <p className="font-semibold text-sm">{stock.name}</p>
+                </TableCell>
+                <TableCell>
+                  <p className="font-semibold text-sm">{stock.description}</p>
                 </TableCell>
                 <TableCell>
                   <p className="text-xs text-gray-500">{stock.price}</p>

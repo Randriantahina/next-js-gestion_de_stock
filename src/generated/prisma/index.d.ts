@@ -2104,6 +2104,7 @@ export namespace Prisma {
   export type StockMinAggregateOutputType = {
     id: number | null
     name: string | null
+    description: string | null
     price: number | null
     status: number | null
     createdAt: Date | null
@@ -2113,6 +2114,7 @@ export namespace Prisma {
   export type StockMaxAggregateOutputType = {
     id: number | null
     name: string | null
+    description: string | null
     price: number | null
     status: number | null
     createdAt: Date | null
@@ -2122,6 +2124,7 @@ export namespace Prisma {
   export type StockCountAggregateOutputType = {
     id: number
     name: number
+    description: number
     price: number
     status: number
     createdAt: number
@@ -2145,6 +2148,7 @@ export namespace Prisma {
   export type StockMinAggregateInputType = {
     id?: true
     name?: true
+    description?: true
     price?: true
     status?: true
     createdAt?: true
@@ -2154,6 +2158,7 @@ export namespace Prisma {
   export type StockMaxAggregateInputType = {
     id?: true
     name?: true
+    description?: true
     price?: true
     status?: true
     createdAt?: true
@@ -2163,6 +2168,7 @@ export namespace Prisma {
   export type StockCountAggregateInputType = {
     id?: true
     name?: true
+    description?: true
     price?: true
     status?: true
     createdAt?: true
@@ -2259,6 +2265,7 @@ export namespace Prisma {
   export type StockGroupByOutputType = {
     id: number
     name: string
+    description: string
     price: number
     status: number
     createdAt: Date
@@ -2287,6 +2294,7 @@ export namespace Prisma {
   export type StockSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
+    description?: boolean
     price?: boolean
     status?: boolean
     createdAt?: boolean
@@ -2300,13 +2308,14 @@ export namespace Prisma {
   export type StockSelectScalar = {
     id?: boolean
     name?: boolean
+    description?: boolean
     price?: boolean
     status?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type StockOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "price" | "status" | "createdAt" | "updatedAt", ExtArgs["result"]["stock"]>
+  export type StockOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "description" | "price" | "status" | "createdAt" | "updatedAt", ExtArgs["result"]["stock"]>
   export type StockInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     sale?: boolean | Stock$saleArgs<ExtArgs>
     _count?: boolean | StockCountOutputTypeDefaultArgs<ExtArgs>
@@ -2320,6 +2329,7 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: number
       name: string
+      description: string
       price: number
       status: number
       createdAt: Date
@@ -2696,6 +2706,7 @@ export namespace Prisma {
   interface StockFieldRefs {
     readonly id: FieldRef<"Stock", 'Int'>
     readonly name: FieldRef<"Stock", 'String'>
+    readonly description: FieldRef<"Stock", 'String'>
     readonly price: FieldRef<"Stock", 'Float'>
     readonly status: FieldRef<"Stock", 'Int'>
     readonly createdAt: FieldRef<"Stock", 'DateTime'>
@@ -4088,6 +4099,7 @@ export namespace Prisma {
   export const StockScalarFieldEnum: {
     id: 'id',
     name: 'name',
+    description: 'description',
     price: 'price',
     status: 'status',
     createdAt: 'createdAt',
@@ -4125,7 +4137,8 @@ export namespace Prisma {
 
 
   export const StockOrderByRelevanceFieldEnum: {
-    name: 'name'
+    name: 'name',
+    description: 'description'
   };
 
   export type StockOrderByRelevanceFieldEnum = (typeof StockOrderByRelevanceFieldEnum)[keyof typeof StockOrderByRelevanceFieldEnum]
@@ -4238,6 +4251,7 @@ export namespace Prisma {
     NOT?: StockWhereInput | StockWhereInput[]
     id?: IntFilter<"Stock"> | number
     name?: StringFilter<"Stock"> | string
+    description?: StringFilter<"Stock"> | string
     price?: FloatFilter<"Stock"> | number
     status?: IntFilter<"Stock"> | number
     createdAt?: DateTimeFilter<"Stock"> | Date | string
@@ -4248,6 +4262,7 @@ export namespace Prisma {
   export type StockOrderByWithRelationInput = {
     id?: SortOrder
     name?: SortOrder
+    description?: SortOrder
     price?: SortOrder
     status?: SortOrder
     createdAt?: SortOrder
@@ -4262,6 +4277,7 @@ export namespace Prisma {
     OR?: StockWhereInput[]
     NOT?: StockWhereInput | StockWhereInput[]
     name?: StringFilter<"Stock"> | string
+    description?: StringFilter<"Stock"> | string
     price?: FloatFilter<"Stock"> | number
     status?: IntFilter<"Stock"> | number
     createdAt?: DateTimeFilter<"Stock"> | Date | string
@@ -4272,6 +4288,7 @@ export namespace Prisma {
   export type StockOrderByWithAggregationInput = {
     id?: SortOrder
     name?: SortOrder
+    description?: SortOrder
     price?: SortOrder
     status?: SortOrder
     createdAt?: SortOrder
@@ -4289,6 +4306,7 @@ export namespace Prisma {
     NOT?: StockScalarWhereWithAggregatesInput | StockScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"Stock"> | number
     name?: StringWithAggregatesFilter<"Stock"> | string
+    description?: StringWithAggregatesFilter<"Stock"> | string
     price?: FloatWithAggregatesFilter<"Stock"> | number
     status?: IntWithAggregatesFilter<"Stock"> | number
     createdAt?: DateTimeWithAggregatesFilter<"Stock"> | Date | string
@@ -4415,6 +4433,7 @@ export namespace Prisma {
 
   export type StockCreateInput = {
     name: string
+    description: string
     price: number
     status: number
     createdAt?: Date | string
@@ -4425,6 +4444,7 @@ export namespace Prisma {
   export type StockUncheckedCreateInput = {
     id?: number
     name: string
+    description: string
     price: number
     status: number
     createdAt?: Date | string
@@ -4434,6 +4454,7 @@ export namespace Prisma {
 
   export type StockUpdateInput = {
     name?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
     price?: FloatFieldUpdateOperationsInput | number
     status?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -4444,6 +4465,7 @@ export namespace Prisma {
   export type StockUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
     price?: FloatFieldUpdateOperationsInput | number
     status?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -4454,6 +4476,7 @@ export namespace Prisma {
   export type StockCreateManyInput = {
     id?: number
     name: string
+    description: string
     price: number
     status: number
     createdAt?: Date | string
@@ -4462,6 +4485,7 @@ export namespace Prisma {
 
   export type StockUpdateManyMutationInput = {
     name?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
     price?: FloatFieldUpdateOperationsInput | number
     status?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -4471,6 +4495,7 @@ export namespace Prisma {
   export type StockUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
     price?: FloatFieldUpdateOperationsInput | number
     status?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -4684,6 +4709,7 @@ export namespace Prisma {
   export type StockCountOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
+    description?: SortOrder
     price?: SortOrder
     status?: SortOrder
     createdAt?: SortOrder
@@ -4699,6 +4725,7 @@ export namespace Prisma {
   export type StockMaxOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
+    description?: SortOrder
     price?: SortOrder
     status?: SortOrder
     createdAt?: SortOrder
@@ -4708,6 +4735,7 @@ export namespace Prisma {
   export type StockMinOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
+    description?: SortOrder
     price?: SortOrder
     status?: SortOrder
     createdAt?: SortOrder
@@ -5129,6 +5157,7 @@ export namespace Prisma {
 
   export type StockCreateWithoutSaleInput = {
     name: string
+    description: string
     price: number
     status: number
     createdAt?: Date | string
@@ -5138,6 +5167,7 @@ export namespace Prisma {
   export type StockUncheckedCreateWithoutSaleInput = {
     id?: number
     name: string
+    description: string
     price: number
     status: number
     createdAt?: Date | string
@@ -5182,6 +5212,7 @@ export namespace Prisma {
 
   export type StockUpdateWithoutSaleInput = {
     name?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
     price?: FloatFieldUpdateOperationsInput | number
     status?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -5191,6 +5222,7 @@ export namespace Prisma {
   export type StockUncheckedUpdateWithoutSaleInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
     price?: FloatFieldUpdateOperationsInput | number
     status?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string

@@ -1,7 +1,7 @@
 'use client';
 
+import { Button } from '@/src/components/ui/button';
 import { Card, CardContent } from '@/src/components/ui/card';
-import { getSales } from '@/src/lib/actions-sale';
 import { useEffect, useState } from 'react';
 
 export default function SalesPage() {
@@ -9,11 +9,22 @@ export default function SalesPage() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const data = await getSales();
+      const res = await fetch('/api/sales');
+      const data = await res.json();
       setSales(data);
     };
     fetchData();
   }, []);
+
+  // Fonction pour supprimer une vente par stockId
+  const handleDelete = async (stockId: number) => {
+    await fetch('/api/sales', {
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ stockId }),
+    });
+    setSales((prev) => prev.filter((sale) => sale.stockId !== stockId));
+  };
 
   return (
     <div className="p-4 space-y-4">
@@ -31,9 +42,17 @@ export default function SalesPage() {
                 Utilisateur : {sale.user.email}
               </p>
             </div>
-            <p className="text-sm text-muted-foreground">
-              {new Date(sale.createdAt).toLocaleString()}
-            </p>
+            <div className="flex flex-col items-end">
+              <p className="text-sm text-muted-foreground">
+                {new Date(sale.createdAt).toLocaleString()}
+              </p>
+              <Button
+                className="mt-2 px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600"
+                onClick={() => handleDelete(sale.stockId)}
+              >
+                Supprimer
+              </Button>
+            </div>
           </CardContent>
         </Card>
       ))}

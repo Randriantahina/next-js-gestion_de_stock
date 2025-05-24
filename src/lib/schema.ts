@@ -5,6 +5,10 @@ export const bookSchema = z.object({
     .string()
     .min(2, { message: 'Le nom doit contenir au moins 2 caractères' })
     .nonempty({ message: 'Le nom est requis' }),
+  description: z
+    .string()
+    .min(2, { message: 'La description doit contenir au moins 2 caractères' })
+    .nonempty({ message: 'description est requis' }),
   price: z
     .number()
     .positive({ message: 'Le prix doit être positif' })

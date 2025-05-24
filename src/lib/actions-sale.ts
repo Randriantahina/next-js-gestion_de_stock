@@ -24,3 +24,11 @@ export async function createSale(
     },
   });
 }
+
+export async function deleteSalesByStockId(stockId: number) {
+  return await prisma.sale.deleteMany({
+    where: {
+      stockId,
+    },
+  });
+}
