@@ -4,6 +4,7 @@ import dynamic from 'next/dynamic';
 const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
 import { ArrowUpRight } from 'lucide-react';
 import DashboardCard from './dashboard-card';
+import { useEffect, useState } from 'react';
 
 const TrafficDistribution = () => {
   // chart options
@@ -53,13 +54,22 @@ const TrafficDistribution = () => {
     ],
   };
   const seriescolumnchart: any = [5368, 3500, 4106];
+  const [totalStock, setTotalStock] = useState(0);
+
+  useEffect(() => {
+    fetch('/api/stock')
+      .then((res) => res.json())
+      .then((stocks) => {
+        setTotalStock(stocks.length); // Affiche le nombre de stocks distincts
+      });
+  }, []);
 
   return (
-    <DashboardCard title="Traffic Distribution">
+    <DashboardCard title="Stocks">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         {/* Left Column */}
         <div>
-          <div className="text-3xl font-semibold">$36,358</div>
+          <div className="text-3xl font-semibold">{totalStock}</div>
           <div className="flex flex-col sm:flex-row mt-2 items-center">
             <div className="flex items-center space-x-1">
               <div className="w-5 h-5 bg-green-500 rounded-full flex items-center justify-center">

@@ -3,6 +3,7 @@
 import dynamic from 'next/dynamic';
 import { CheckCircle, ArrowDownRight, DollarSign } from 'lucide-react'; // Icônes Lucide
 import DashboardCard from './dashboard-card';
+import { useEffect, useState } from 'react';
 
 const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
@@ -51,7 +52,15 @@ const ProductSales = () => {
       data: [25, 66, 20, 40, 12, 58, 20],
     },
   ];
+  const [totalSales, setTotalSales] = useState(0);
 
+  useEffect(() => {
+    fetch('/api/sales')
+      .then((res) => res.json())
+      .then((sales) => {
+        setTotalSales(sales.length); // Nombre total de ventes
+      });
+  }, []);
   return (
     <DashboardCard
       title="Product Sales"
@@ -71,7 +80,7 @@ const ProductSales = () => {
       }
     >
       <>
-        <div className="text-3xl font-bold mt-[-20px]">$6,820</div>
+        <div className="text-3xl font-bold mt-[-20px]">{totalSales}</div>
         <div className="flex items-center space-x-2 my-1">
           <div className="bg-[#fdede8] rounded-full w-5 h-5 flex items-center justify-center">
             <ArrowDownRight width={18} color="#FA896B" />
