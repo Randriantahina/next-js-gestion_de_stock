@@ -1,12 +1,11 @@
 'use client';
 
-import Blog from '@/src/components/blog';
 import ProductSales from '@/src/components/product-sale';
-import TopPayingClients from '@/src/components/top-paying';
 import TrafficDistribution from '@/src/components/traffic-distrubition';
-import UpcomingSchedules from '@/src/components/up-coming';
+
 import ProfitExpenses from '@/src/components/profit-expense';
 import PageContainer from '@/src/components/container';
+import StockReadonlyTable from '@/src/components/stockReadonlyTable';
 
 const PageNote = () => {
   return (
@@ -34,7 +33,7 @@ const PageNote = () => {
           </div> */}
           {/* TopPayingClients */}
           <div className="col-span-1 lg:col-span-2">
-            <TopPayingClients />
+            <StockReadonlyTable />
           </div>
           {/* Blog */}
           {/* <div className="col-span-1 lg:col-span-3">
