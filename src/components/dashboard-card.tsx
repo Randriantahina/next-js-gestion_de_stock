@@ -4,13 +4,13 @@ import { Card, CardContent } from './ui/card';
 type Props = {
   title?: string;
   subtitle?: string;
-  action?: JSX.Element;
-  footer?: JSX.Element;
-  cardheading?: string | JSX.Element;
-  headtitle?: string | JSX.Element;
-  headsubtitle?: string | JSX.Element;
-  children?: JSX.Element;
-  middlecontent?: string | JSX.Element;
+  action?: React.ReactElement;
+  footer?: React.ReactElement;
+  cardheading?: string | React.ReactElement;
+  headtitle?: string | React.ReactElement;
+  headsubtitle?: string | React.ReactElement;
+  children?: React.ReactElement;
+  middlecontent?: string | React.ReactElement;
 };
 
 const DashboardCard = ({
