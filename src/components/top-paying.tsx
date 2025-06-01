@@ -83,7 +83,7 @@ const TopPayingClients = () => {
             Ajouter un stock
           </Button>
         </div>
-        <Table className="min-w-[700px]">
+        <Table className="w-full">
           <TableHeader>
             <TableRow>
               <TableHead className="font-semibold text-sm">Id</TableHead>
@@ -95,7 +95,7 @@ const TopPayingClients = () => {
                 Prix unitaire
               </TableHead>
               <TableHead className="font-semibold text-sm">Statut</TableHead>
-              <TableHead className="font-semibold text-sm text-right">
+              <TableHead className="font-semibold text-sm text-center">
                 Actions
               </TableHead>
             </TableRow>
@@ -129,7 +129,7 @@ const TopPayingClients = () => {
                   </span>
                 </TableCell>
                 <TableCell className="text-right">
-                  <div className="flex space-x-2">
+                  <div className="flex justify-center space-x-2">
                     <Button
                       onClick={() => {
                         setStockToEdit(stock);

@@ -24,18 +24,19 @@ model User {
 }
 
 model Stock {
-  id        Int      @id @default(autoincrement())
-  name      String
-  price     Float
-  status    Int
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  sale      Sale[]
+  id          Int      @id @default(autoincrement())
+  name        String
+  description String
+  price       Float
+  status      Int
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  sale        Sale[]
 }
 
 model Sale {
   id        String   @id @default(cuid())
-  stock     Stock    @relation(fields: [stockId], references: [id])
+  stock     Stock    @relation(fields: [stockId], references: [id], onDelete: Cascade)
   stockId   Int
   quantity  Int
   createdAt DateTime @default(now())

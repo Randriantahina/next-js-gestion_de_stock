@@ -99,18 +99,12 @@ const PageSetting = () => {
                 />
               </div>
             </CardContent>
-            <CardFooter className="flex items-center justify-between">
-              <Button
-                type="button"
-                className="bg-red-500 mx-1 my-2 hover:bg-red-600 text-white"
-              >
-                <Link href="/dashboard/payment">Annuler</Link>
-              </Button>
+            <CardFooter className="flex flex-col">
               <Button
                 type="submit"
                 className="bg-orange-500 mx-1 my-2 hover:bg-orange-600 text-white"
               >
-                Créer note
+                Ajouter
               </Button>
             </CardFooter>
           </div>

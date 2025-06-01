@@ -35,7 +35,7 @@ const StockReadonlyTable = () => {
         <div className="flex justify-between items-center mb-8">
           <h1 className="text-3xl font-bold text-gray-900">Stocks</h1>
         </div>
-        <Table className="min-w-[700px]">
+        <Table className="w-full">
           <TableHeader>
             <TableRow>
               <TableHead className="font-semibold text-sm">Id</TableHead>

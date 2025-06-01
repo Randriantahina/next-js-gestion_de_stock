@@ -63,7 +63,7 @@ const ProductSales = () => {
   }, []);
   return (
     <DashboardCard
-      title="Product Sales"
+      title="Ventes"
       action={
         <button className="bg-red-600 p-2 rounded-full shadow-none">
           <DollarSign width={24} color="#ffffff" />
@@ -80,13 +80,8 @@ const ProductSales = () => {
       }
     >
       <>
-        <div className="text-3xl font-bold mt-[-20px]">{totalSales}</div>
-        <div className="flex items-center space-x-2 my-1">
-          <div className="bg-[#fdede8] rounded-full w-5 h-5 flex items-center justify-center">
-            <ArrowDownRight width={18} color="#FA896B" />
-          </div>
-          <div className="font-semibold text-sm">+9%</div>
-          <div className="text-sm text-gray-500">last year</div>
+        <div className="text-3xl font-bold mt-[-20px] text-center">
+          {totalSales}
         </div>
       </>
     </DashboardCard>
